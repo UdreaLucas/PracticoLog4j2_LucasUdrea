@@ -1,0 +1,2 @@
+2024-05-10 11:09:08,433 {HH:mm:ss.SSS} [main] INFO  practicolog4j.ej56.Ej56 - Este es un mensaje de info del ej 5 y 6
+2024-05-10 11:10:38,449 {HH:mm:ss.SSS} [main] WARN  practicolog4j.ej56.Ej56 - Este es un mensaje de advertencia luego de 1 minuto y medio

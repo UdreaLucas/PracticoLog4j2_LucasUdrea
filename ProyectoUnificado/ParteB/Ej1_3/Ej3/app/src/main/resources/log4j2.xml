@@ -1,0 +1,64 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?> 
+<Configuration status="INFO"> 
+    
+    <!--Configuracion de mensaje por consola-->
+    
+    <!--    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>-->
+    
+    <!--     <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>-->
+    
+
+    <!--Config para mostrar por File: logs/log.txt-->
+    
+<!--    <Appenders> 
+        <RollingFile name="rolling" fileName="logs/log.txt "
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />  
+  
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+  
+        </RollingFile>
+
+    <Loggers> 
+        <Root level="info"> 
+            <AppenderRef ref="rolling" />
+        </Root> 
+    </Loggers> 
+</Configuration> -->
+
+        <!--Configuracion con http-->
+
+       <Appenders> 
+    <Http name="Http" url="https://localhost:8000test/log4j/"> 
+        <Property name="X-Java-Runtime" value="$${java:runtime}" /> 
+        <JsonLayout properties="true" /> 
+
+        <SSL> 
+            <KeyStore location="log4j2-keystore.jks" passwordEnvironmentVariable="KEYSTORE_PASSWORD" /> 
+            <TrustStore location="${sys:user.home}/truststore.jks" passwordFile="${sys:user.home}/truststore.pwd" /> 
+        </SSL> 
+    </Http> 
+</Appenders>
+
+
+
+
+    <Loggers> 
+        <Root level="info"> 
+            <AppenderRef ref="Http" />
+        </Root> 
+    </Loggers> 
+</Configuration> 

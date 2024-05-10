@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Configuration status="INFO"> 
+
+    
+    #Crear Level desde config. y asigna una prioridad
+  <CustomLevels>
+    <CustomLevel name="VERBOSE" intLevel="550" />
+  </CustomLevels>
+
+<Appenders> 
+<Console name="console" target="SYSTEM_OUT"> 
+    #Formato
+  <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" /> 
+</Console> 
+</Appenders> 
+#Prioridad y salida
+<Loggers> <Root level="trace"> <AppenderRef ref="console" /> </Root> </Loggers> 
+</Configuration> 
